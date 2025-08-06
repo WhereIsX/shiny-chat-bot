@@ -1,0 +1,33 @@
+# Twitch Bot Configuration
+# RECOMMENDED: Use environment variables for authentication (more secure):
+# export TWITCH_OAUTH_TOKEN="oauth:your_token_here"
+# export TWITCH_NICKNAME="your_bot_name"
+# export TWITCH_CHANNELS="#your_channel,#another_channel"
+
+# OAuth token from https://twitchapps.com/tmi/
+# Must start with "oauth:" - LEAVE EMPTY to use environment variable
+oauth_token: ""
+
+# Bot's Twitch username - LEAVE EMPTY to use environment variable
+nickname: ""
+
+# Channels to join (must start with #) - LEAVE EMPTY to use environment variable
+channels: []
+
+# Command settings
+command_prefix: "!"
+
+# Logging level: debug, info, warn, error, fatal
+log_level: "info"
+
+# Connection settings
+auto_reconnect: true
+reconnect_delay: 5  # seconds
+timeout: 300        # seconds
+
+# Moderation settings
+max_message_length: 500
+
+# IRC server settings (usually don't need to change)
+irc_server: "irc.chat.twitch.tv"
+irc_port: 6667

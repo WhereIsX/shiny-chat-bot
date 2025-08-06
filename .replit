@@ -1,0 +1,37 @@
+modules = ["crystal"]
+
+[nix]
+channel = "stable-25_05"
+packages = ["crystal", "shards"]
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Twitch Bot"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Twitch Bot Compiled"
+
+[[workflows.workflow]]
+name = "Twitch Bot"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "shards install && crystal run src/twitch_bot.cr"
+
+[[workflows.workflow]]
+name = "Twitch Bot Compiled"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "crystal build src/twitch_bot.cr -o twitch_bot && ./twitch_bot"
